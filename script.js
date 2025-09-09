@@ -16,6 +16,28 @@ setInterval(addHeart,50);
 setInterval(centerHeart,200);
 setInterval(deleteHearts,8000);
 
-document.getElementById("button").onclick = function() {
-    window.location.href = "Eres.html";
-  };
+function abrirModal() {
+  fetch("Eres.html")
+    .then(response => response.text())
+    .then(data => {
+      // Crear un parser para manipular el HTML
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(data, "text/html");
+
+      // Buscar solo el div.mensaje
+      const mensaje = doc.querySelector(".mensaje");
+
+      // Insertarlo en el modal
+      document.getElementById("modal-content").innerHTML = mensaje.outerHTML;
+
+      // Mostrar el modal
+      document.getElementById("overlay").style.display = "flex";
+    });
+}
+
+function cerrarModal() {
+  document.getElementById("overlay").style.display = "none";
+}
+
+// Evento al hacer clic en el corazón
+document.getElementById("button").addEventListener("click", abrirModal);
