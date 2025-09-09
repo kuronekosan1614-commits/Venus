@@ -60,6 +60,8 @@
   opacity: 1;
   transition: 0.5s ease;
   opacity: 0;
+  pointer-events: none;
+
 }
 
 @keyframes show-heart {

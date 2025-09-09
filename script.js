@@ -41,3 +41,4 @@ function cerrarModal() {
 
 // Evento al hacer clic en el corazón
 document.getElementById("button").addEventListener("click", abrirModal);
+
