@@ -80,39 +80,37 @@
    </style>
 
    <Script>
-// Botón de mensajes flotantes
-const btnMensaje = document.getElementById("btn-mensaje");
+    const btnMensaje = document.getElementById("btn-mensaje");
 
-const mensajes = [
-  "✨ Te amo Venus ♥",
-  "Eres única 🌹",
-  "Siempre contigo 💕",
-  "Tu sonrisa ilumina mi mundo 🌟",
-  "Mi Osita 🧸",
-];
+    const mensajes = [
+      "✨ Te amo Venus ♥",
+      "Eres única 🌹",
+      "Siempre contigo 💕",
+      "Tu sonrisa ilumina mi mundo 🌟",
+      "Mi Osita 🧸",
+    ];
 
-// Función que crea una burbuja con mensaje aleatorio
-function mostrarBurbuja() {
-  const burbuja = document.createElement("div");
-  burbuja.className = "burbuja";
+  function mostrarBurbuja() {
+    const burbuja = document.createElement("div");
+    burbuja.className = "burbuja";
 
-  // Mensaje aleatorio
-  burbuja.innerText = mensajes[Math.floor(Math.random() * mensajes.length)];
+    // Mensaje aleatorio
+    burbuja.innerText = mensajes[Math.floor(Math.random() * mensajes.length)];
 
-  document.body.appendChild(burbuja);
+    document.body.appendChild(burbuja);
 
-  // Posición aleatoria en horizontal
-  burbuja.style.left = Math.random() * 80 + "vw";
-  burbuja.style.top = "70vh";
+    // Posición aleatoria en pantalla
+    burbuja.style.left = Math.random() * 90 + "vw";
+    burbuja.style.top = Math.random() * 80 + "vh";
 
-  // Eliminar después de 3 segundos
-  setTimeout(() => {
-    burbuja.remove();
-  }, 3000);
-}
+    // Eliminar después de 3 segundos
+    setTimeout(() => {
+      burbuja.remove();
+    }, 3000);
+  }
 
-// Evento: cada vez que se oprime el botón sale un mensaje
-btnMensaje.addEventListener("click", mostrarBurbuja);
+  btnMensaje.addEventListener("click", mostrarBurbuja);
+
 
 
    </Script>
