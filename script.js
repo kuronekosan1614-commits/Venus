@@ -14,7 +14,7 @@ function centerHeart(){
 }
 setInterval(addHeart,50);
 setInterval(centerHeart,200);
-setInterval(deleteHearts,8000);
+setInterval(deleteHearts,10000);
 
 function abrirModal() {
   fetch("Eres.html")

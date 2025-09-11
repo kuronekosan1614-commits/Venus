@@ -88,6 +88,10 @@ h1 {
   font-size: 40px;
   color: rgb(230, 221, 221);
 }
+h3{
+  position: relative;
+  text-align: center;
+}
 /* Fondo oscuro detrás del modal */
 .overlay {
   position: fixed;
@@ -129,4 +133,47 @@ h1 {
 .close-btn:hover {
   background: black;
   color: bisque;
+}
+/* 🎵 Caja del reproductor */
+.music-player {
+  text-align: center;
+  margin-top: 30px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px;
+  border-radius: 15px;
+  border: 2px solid white;
+  color: white;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: cursive;
+  box-shadow: 0 0 10px white;
+
+  display: flex;
+  flex-direction: column; /* apila los elementos en columna */
+  gap: 10px; /* espacio entre cada cosa */
+}
+
+.music-player h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+/* Ajusta el select */
+.music-player select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Ajusta el audio */
+.music-player audio {
+  width: 100%; /* ocupa todo el ancho disponible */
+  border-radius: 10px;
+}
+.selector-container{
+  position: relative;
 }

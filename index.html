@@ -43,18 +43,20 @@
     position: absolute;
     color: white;
     font-size: 18px;
-    background: rgba(255, 75, 110, 0.9);
+    background: rgba(0, 0, 0, 0.9);
     padding: 8px 12px;
     border-radius: 12px;
     pointer-events: none;
     animation: flotar 3s ease-in-out forwards;
     max-width: 250px;
     text-align: center;
+    box-shadow: 0 0 6px white;
   }
   .contenedor {
   text-align: center;
   margin-top: 40vh;
   color: white;
+
   }
 
   #btn-mensaje {
@@ -88,6 +90,40 @@
       "Siempre contigo 💕",
       "Tu sonrisa ilumina mi mundo 🌟",
       "Mi Osita 🧸",
+      "Me haces feliz",
+      "Me animas",
+      "Me elegiste...",
+      "Ojitos lindos",
+      "La indicada(tu)",
+      "Mi mejor regalo",
+      "Mi reina",
+      "Mi destino",
+      "Mi cancion favorita",
+      "Mi amor por Nata",
+      "Mi todo y más 💞",
+      "Mi chiquita 🐻",
+      "Mi niña linda 🌸",
+      "Mi razon de vivir",
+      "Mi debilidad",
+      "Siempre en mis pensamientos 💭",
+      "Para amarte, yo tengo la pocima de esta vida y la proxima",
+      "Vales mas que oro",
+      "Eres la bala directa a mi corazon",
+      "Siempre tuyo",
+      "Eres mi skin mas bonita",
+      "Contigo no necesito nada mas",
+      "Ojala spawnear al lado tuyo",
+      "Si me muero, tu me revives",
+      "Venus Ariana Castillo mia",
+      "Mi mujer",
+      "Mi amor",
+      "Mi destinooooo",
+      "Miaaaa",
+      "La razon de mi heterosexualidad",
+      "Te dedico Aeternum, Nata",
+      "Te dedico Mil Vidas, Mora",
+      "Te dedico Eres Arte, Eslabon Armado",
+      "Te dedico Bemaste, Tiago Pzk"
     ];
 
   function mostrarBurbuja() {
@@ -119,5 +155,86 @@
 
   <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script src="script.js"></script>
 
+  <!-- Reproductor -->
+
+   <div class="music-player">
+  <h3>Elige nuestra canción 💕</h3>
+
+  <div class="selector-container">
+    <select id="songSelector">
+      <option value="Canciones/POV te re enamoraste mal.mp3">💖 POV: te re enamoraste mal - Robleis</option>
+      <option value="Canciones/Mil Vidas.mp3">🌹 Mil Vidas - Mora</option>
+      <option value="Canciones/Aeternum.mp3">✨ Aeternum - Natanael Cano</option>
+      <option value="Canciones/Mi Bello Angel.mp3">👼 Mi Bello Angel - Natanael Cano</option>
+      <option value="Canciones/1004 KM.mp3">🚊 1004 km - Junior H</option>
+      <option value="Canciones/Estrellas.mp3"> ⭐ Estrellas - Natanael Cano</option>
+      <option value="Canciones/Always Love.mp3"> 💗 Always Love - d4vd, Hyunjin</option>
+    </select>
+  </div>
+  
+  <audio id="player" controls autoplay>
+    <source src="song1.mp3" type="audio/mpeg">
+    Tu navegador no soporta el audio.
+  </audio>
+</div>
+
+<script>
+  const selector = document.getElementById("songSelector");
+  const player = document.getElementById("player");
+
+  // ✅ Cambiar canción con el selector
+  selector.addEventListener("change", function() {
+    player.src = this.value;
+    player.play();
+  });
+
+  // ✅ Guardar tiempo y canción actual cada segundo
+  setInterval(() => {
+    localStorage.setItem("tiempoCancion", player.currentTime);
+    localStorage.setItem("cancionActual", player.src);
+    localStorage.setItem("estaPausado", player.paused);
+  }, 1000);
+
+  // ✅ Recuperar al recargar / reiniciar
+  window.addEventListener("load", () => {
+    let tiempo = localStorage.getItem("tiempoCancion");
+    let cancion = localStorage.getItem("cancionActual");
+    let estaPausado = localStorage.getItem("estaPausado") === "true";
+
+    if (cancion) {
+      player.src = cancion;
+      player.currentTime = tiempo;
+      if (!estaPausado) player.play();
+    }
+  });
+</script>
+
+<style>
+.music-player {
+  text-align: center;
+  margin-top: 30px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px;
+  border-radius: 15px;
+  border: 2px solid white;
+  color: white;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: cursive;
+  box-shadow: 0 0 10px white;
+}
+
+.music-player h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+#songSelector{
+  background-color: #be0f4a;
+  cursor: pointer;
+  color: white;
+  font-size: bold;
+}
+</style>
 </body>
 </html>
